@@ -1,0 +1,31 @@
+﻿@model List<MVC_Empty.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kunder</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Contact title</th>
+            <th>Contact</th>
+            <th>Company</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.ContactTitle</td>
+                <td>@customer.ContactName</td>
+                <td>@customer.CompanyName</td>
+                <td><a href="/Customers/Detail/@customer.CustomerID" class="btn btn-primary">Visa</a></td>
+                <td><a href="/Customers/Edit/@customer.CustomerID" class="btn btn-primary">Ändra</a></td>
+            </tr>
+        }
+    </tbody> 
+</table>

@@ -1,0 +1,31 @@
+﻿@model MVC_Empty.Models.Customer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    @Html.HiddenFor(model => model.CustomerID)
+
+    <div class="form-group">
+        @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.ContactName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <a href="/Customers/Index" class="btn btn-primary">Tillbaka</a>
+    <button type="submit" class="btn btn-primary">Spara</button>
+}

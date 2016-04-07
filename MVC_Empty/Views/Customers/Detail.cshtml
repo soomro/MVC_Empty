@@ -1,0 +1,55 @@
+﻿@model MVC_Empty.Models.Customer
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail about @Model.ContactName</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Customer Id</th>
+            <th>Contact title</th>
+            <th>Contact name</th>
+            <th>Company name</th>
+            <th>Country</th>
+            <th>Address</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.CustomerID</td>
+            <td>@Model.ContactTitle</td>
+            <td>@Model.ContactName</td>
+            <td>@Model.CompanyName</td>
+            <td>@Model.Country</td>
+            <td>@Model.Address</td>
+            <td>@Model.City</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<h2>Orders</h2>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order id</th>
+            <th>Orderdate</th>
+            <th>ShipAddress</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+            <tr>
+                <td>@order.OrderID</td>
+                <td>@order.OrderDate</td>
+                <td>@order.ShipAddress</td>
+                <td><a href="/Order/Detail/@order.OrderID" class="btn btn-primary">Visa</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
